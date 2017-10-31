@@ -14,6 +14,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 // app.user(middleware.isAuthed);
+massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
