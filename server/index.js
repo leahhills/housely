@@ -4,7 +4,6 @@ const express = require('express')
     , bodyParser = require('body-parser')
     , cors = require('cors')
     , massive = require('massive')
-    , middleware = require('./middleware')
     , session = require('express-session');
     
 
