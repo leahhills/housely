@@ -20,12 +20,18 @@ CREATE TABLE Property (
     City TEXT  NULL,
     State TEXT  NULL,
     Zip NUMERIC  NULL,
-    UserID TEXT NOT NULL
+    UserID INTEGER NOT NULL
     
     
 );
 
 
+
+
+
+
+
+-- Dummy Data to add to db
 INSERT INTO Property(
     PropertyName,
     PropertyDesc,
