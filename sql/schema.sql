@@ -4,107 +4,31 @@ DROP TABLE IF EXISTS Property;
 
 
 CREATE TABLE Users (
-   UserId Serial, 
+   UserID Serial, 
    UserName TEXT NOT NULL,
    Password TEXT NOT NULL
 );
 
 CREATE TABLE Property (
     PropertyId Serial,
-    Loan DECIMAL NOT NULL,
-    Mortgage DECIMAL NOT NULL,  
-    DesiredRent DECIMAL NOT NULL,
-    Address TEXT NOT NULL,
-    City TEXT NOT NULL,
-    State TEXT NOT NULL,
-    Zip NUMERIC NOT NULL
+    PropertyName TEXT NULL,
+    PropertyDesc TEXT  NULL,
+    Loan DECIMAL  NULL,
+    Mortgage DECIMAL  NULL,  
+    DesiredRent DECIMAL  NULL,
+    Address TEXT  NULL,
+    City TEXT  NULL,
+    State TEXT  NULL,
+    Zip NUMERIC  NULL,
+    UserID TEXT NOT NULL
+    
+    
 );
 
 
 INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(3000,50,700, '842 west 1075 south','Brigham City','UT',84302);
-
-
-INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(3000,50,700, '115 341 east','Sandy','UT',84111);
-
-
-
-INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(3000,50,700, '842 west 1075 south','Brigham City','UT',84302);
-
-
-
-INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(300,50,1000,'F easy street','NYC','NY',11515);
-
-
-
-INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(3000,50,700, '842 west 1075 south','Brigham City','UT',84302);
-
-
-
-INSERT INTO Property(
-    Loan,
-    Mortgage,
-    DesiredRent,
-    Address,
-    City,
-    State,
-    Zip
-)
-VALUES
-(3000,50,700, '842 west 1075 south','Brigham City','UT',84302);
-
-
-
-INSERT INTO Property(
+    PropertyName,
+    PropertyDesc,
     Loan,
     Mortgage,
     DesiredRent,
@@ -112,7 +36,60 @@ INSERT INTO Property(
     City,
     State,
     Zip,
-    
+    UserID
 )
 VALUES
-(3000,50,700, '842 west 1075 south','Brigham City','UT',84302);
+('Banana','Its a banana boat',3000,50,700, '842 west 1075 south','Brigham City','UT',84302,1);
+
+
+INSERT INTO Property(
+    PropertyName,
+    PropertyDesc,
+    Loan,
+    Mortgage,
+    DesiredRent,
+    Address,
+    City,
+    State,
+    Zip,
+    UserID
+)
+VALUES
+('shoe','grandmothers shoe',3000,50,700, '115 341 east','Sandy','UT', 84111,2);
+
+
+
+INSERT INTO Property(
+    PropertyName,
+    PropertyDesc,
+    Loan,
+    Mortgage,
+    DesiredRent,
+    Address,
+    City,
+    State,
+    Zip,
+    UserID
+)
+VALUES
+('PRETTY','oh my',3000,50,700, '842 west 1075 south','Brigham City','UT',84302,4);
+
+
+
+INSERT INTO Property(
+    PropertyName,
+    PropertyDesc,
+    Loan,
+    Mortgage,
+    DesiredRent,
+    Address,
+    City,
+    State,
+    Zip,
+    UserID
+)
+VALUES
+('DOghouse','for misbehaving inlaws',300,50,1000,'F easy street','NYC','NY',11515,6);
+
+
+
