@@ -1,2 +1,2 @@
-DELETE FROM Users WHERE
-UserID=$1;
+DELETE FROM Users WHERE UserID=$1;
+DELETE FROM Property WHERE UserID=$1;
