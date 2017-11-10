@@ -16,13 +16,14 @@ class App extends Component {
   }
 
 handleChange(prop,val){
-  this.setState=({
+  this.setState({
     [prop]:val
   });
 }
 
   
   render() {
+    console.log(this.state)
     const { username, password } =this.state;
 
     return (
@@ -30,9 +31,9 @@ handleChange(prop,val){
         <div className="login_reg" >
           <img src={auth_logo} alt="house logo" className="house_logo"/>
           <span>Username</span>
-          <input value={ username } type="username" onChange={ (e) => this.handleChange('username', e.target.value)}/>
+          <input className="auth_input_user" value={ username }type="username" onChange={ (e) => this.handleChange('username', e.target.value)}/>
           <span>Password:</span>
-          <input  value={ password } type="password" onChange={(e) => this.handleChange('password',e.target.values) }/>
+          <input className="auth_input_pass" value={ password } type="password" onChange={(e) => this.handleChange('password',e.target.value) }/>
         </div> 
      <div className="button_container">
           <button className ="login_button">Login</button>

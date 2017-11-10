@@ -4,8 +4,8 @@ body{
 }
 
 .auth_container{
-  margin-left:10%;
-  margin-right:10%;
+  margin-left:8%;
+  margin-right:8%;
   height: 100vh;
   display:flex;
   flex-direction: column;
@@ -16,22 +16,40 @@ body{
   font-size:20px;
   
 }
+.auth_input_user{
+  padding:10px;
+  align-items: center;
+  width:500px;
+  border: 1px solid;
+  display: flex;
+  margin-top:10px;
+  margin-bottom:30px;
+}
+
+.auth_input_pass{
+  padding:10px;
+  align-items: center;
+  /* justify-content: left; */
+  width:500px;
+  border:1px solid;
+  display: flex;
+  margin-top:10px;
+  
+}
+
 
 .house_logo{
- 
+  /* margin */
+  margin-bottom:10%;
 }
 
 
 .login_reg{
-  
-  width:20%;
-  /* margin-bottom:25px; */
+  margin-bottom:25px;
 }
 
 
 .button_container{
-
-
 
 }
 

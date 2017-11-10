@@ -1,4 +1,4 @@
-INSERT INTO User(
+INSERT INTO Users(
     UserName,
     Password
 )
