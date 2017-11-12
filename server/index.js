@@ -4,7 +4,9 @@ const express = require('express')
     , bodyParser = require('body-parser')
     , cors = require('cors')
     , massive = require('massive')
-    , session = require('express-session');
+    , session = require('express-session')
+    , controller = require('./controller')
+    , endpoints = require('./endpoints');
     
 
 
@@ -19,6 +21,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
+
+endpoints.buildEndPoints(app, controller);
 
 
 const PORT= process.env.PORT || 3000;

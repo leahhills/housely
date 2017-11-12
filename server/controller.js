@@ -1,4 +1,6 @@
 module.exports={
+    
+    //Properties endpoints
 
     createProp: (req, res, next)=>{
         const dbInstance = req.app.get('db')
@@ -30,9 +32,11 @@ module.exports={
 
     getPropRent:(req,res,next)=>{
         const dbInstance = req.app.get('db')
+        const { desiredrent, userID } = req.body;
 
-        dbInstance.read_property_rent([req.params.id, desiredrent, userID])
-        .then(()=>res.status(200).send()
+
+        dbInstance.read_property_rent([desiredrent, req.params.id])
+        .then((properties)=>res.status(200).send(properties))
         .catch((err)=>res.status(500).send(err));
         
     }
