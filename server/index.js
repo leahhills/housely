@@ -14,7 +14,10 @@ const express = require('express')
 const app = express();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:true }));
 app.use(cors());
+
+massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 
 // app.user(middleware.isAuthed);
 app.use(session({
@@ -26,7 +29,6 @@ app.use(session({
 app.use(checkForSession)
 endpoints.buildEndPoints(app, controller);
 
-massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 
 const PORT= process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`listening on port: ${PORT}`));
