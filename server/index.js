@@ -5,25 +5,28 @@ const express = require('express')
     , cors = require('cors')
     , massive = require('massive')
     , session = require('express-session')
+    , checkForSession = require('./middlewares/checkForSession')
     , controller = require('./controller')
     , endpoints = require('./endpoints');
-    
 
+    
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
 // app.user(middleware.isAuthed);
-massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true
 }))
 
+app.use(checkForSession)
 endpoints.buildEndPoints(app, controller);
 
+massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 
 const PORT= process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`listening on port: ${PORT}`));

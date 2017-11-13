@@ -1,6 +1,12 @@
+const users = require('./models/users')
+
 module.exports={
     
-    //Properties endpoints
+    
+
+
+
+    //Property endpoint methods
 
     createProp: (req, res, next)=>{
         const dbInstance = req.app.get('db')
@@ -16,15 +22,19 @@ module.exports={
     getProp:(req,res,next)=>{
         const dbInstance = req.app.get('db')
 
-        dbInstance.read_property(req.params.id)
-        .then((property)=>res.status(200).send(property))
+        dbInstance.read_property(5)
+        .then((property)=>{
+            res.status(200).send(property)
+            console.log(property)
+            
+        })
         .catch((err)=>res.status(500).send(err));
     },
 
     deleteProp: (req,res,next)=>{
         const dbInstance = req.app.get('db')
-
-        dbInstance.delete_prop(req.params.id)
+        console.log(req.params.id)
+        dbInstance.delete_property(req.params.id)
         .then(()=>res.status(200).send('Property deleted'))
         .catch((err)=>res.status(500).send(err));
 
