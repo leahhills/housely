@@ -1,18 +1,17 @@
+const authController = require('./controllers/auth.controller');
+const propertyController = require('./controllers/property.controller');
+
 module.exports = {
-    buildEndPoints: (app, controller) => {
+    buildEndPoints: (app) => {
         //authorization endpoint
+        app.post('/api/auth/login', authController.login)
+        app.post('/api/auth/register', authController.register)
+        app.post('/api/auth/logout', authController.logout)
 
-        app.post('/api/auth/login', controller.loggingin)
-        app.post('/api/auth/register', controller.registering)
-        app.post('/api/auth/logout', controller.loggingout)
-
-        
-        
         //property endpoints
-        app.post('/api/properties', controller.createProp);
-        app.get('/api/properties', controller.getProp);
-        app.delete('/api/properties/:id', controller.deleteProperty);
-        app.get('/api/properties/filter', controller.getPropRent);
-        
+        app.post('/api/properties', propertyController.createProp);
+        app.get('/api/properties', propertyController.getProp);
+        app.delete('/api/properties/:id', propertyController.deleteProperty);
+        app.get('/api/properties/filter', propertyController.getPropRent);
     }
 }

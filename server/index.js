@@ -1,15 +1,12 @@
 require('dotenv').config();
 
-const express = require('express')
-    , bodyParser = require('body-parser')
-    , cors = require('cors')
-    , massive = require('massive')
-    , session = require('express-session')
-    , checkForSession = require('./middlewares/checkForSession')
-    , controller = require('./controller')
-    , endpoints = require('./endpoints');
-
-    
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const massive = require('massive');
+const session = require('express-session');
+const checkForSession = require('./middlewares/checkForSession');
+const endpoints = require('./endpoints');
 
 const app = express();
 
@@ -19,16 +16,20 @@ app.use(cors());
 
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 
-// app.user(middleware.isAuthed);
-app.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: true
-}))
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         secure: false,
+//         httpOnly: false
+//     },
+//     expires: 2592000000
+// }));
 
-app.use(checkForSession)
-endpoints.buildEndPoints(app, controller);
+// app.use(checkForSession);
 
+endpoints.buildEndPoints(app);
 
 const PORT= process.env.PORT || 3000;
 app.listen(PORT,()=>console.log(`listening on port: ${PORT}`));

@@ -32,6 +32,7 @@ CREATE TABLE Property (
 
 
 -- Dummy Data to add to db
+
 INSERT INTO Property(
     PropertyName,
     PropertyDesc,
@@ -97,5 +98,5 @@ INSERT INTO Property(
 VALUES
 ('DOghouse','for misbehaving inlaws',300,50,1000,'F easy street','NYC','NY',11515,6);
 
-
-
+INSERT INTO Users(UserName, Password)
+VALUES('Helga', 'Butt'), ('Xena', 'Puppy');

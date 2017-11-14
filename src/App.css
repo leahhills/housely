@@ -41,8 +41,26 @@ body{
 .house_logo{
   /* margin */
   margin-bottom:10%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
+.error_container {
+  margin-top: 15px;
+  background-color: #CC4040;
+  color: #fafafa;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.success_container {
+  margin-top: 15px;
+  background-color: #35BB43;
+  color: #fafafa;
+  border-radius: 5px;
+  padding: 5px;
+}
 
 .login_reg{
   margin-bottom:25px;

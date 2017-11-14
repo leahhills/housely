@@ -1,8 +1,10 @@
-module.exports= function (req, res, next){
-    const { session } = req;
-    if(!session.user){
+module.exports = function (req, res, next){
+    let { session } = req;
+    console.log(JSON.stringify(session));
+    if(!session.user) {
+        console.log('no user', session.user)
         session.user = { username:'', password:'' };
     }
+    console.log('user', session.user);
     next();
-
 }
