@@ -9,9 +9,9 @@ module.exports = {
         app.post('/api/auth/logout', authController.logout)
 
         //property endpoints
-        app.post('/api/properties', propertyController.createProp);
-        app.get('/api/properties', propertyController.getProp);
+        app.post('/api/properties', propertyController.createProperty);
+        app.get('/api/properties', propertyController.getProperties);
         app.delete('/api/properties/:id', propertyController.deleteProperty);
-        app.get('/api/properties/filter', propertyController.getPropRent);
+        app.get('/api/properties/filter', propertyController.getPropertiesByRent);
     }
 }

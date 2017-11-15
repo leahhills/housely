@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
+import PropertyService from '../../services/propertyService';
 import './Home.css';
 import '../../App.css';
 
@@ -8,18 +9,34 @@ class Home extends Component {
     constructor(props) {
         super(props);
 
+        this.propertyService = new PropertyService();
+
         this.state = {
-            filterRent: 0
+            filterRent: 0,
+            properties: []
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.getProperties = this.getProperties.bind(this);
+
+        this.getProperties();
     }
 
     handleChange(prop, val) {
         this.setState({ [prop]: val });
     }
 
+    getProperties() {
+        this.propertyService.getProperties()
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => console.log('Error getting properties', err));
+    }
+
     render() {
+
+
         return (
             <div>
                 <Header />
