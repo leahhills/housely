@@ -1,0 +1,10 @@
+.wizard-one-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+}
+
+.wizard-one-body {
+    padding: 7px;
+}

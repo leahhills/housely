@@ -1,2 +1,2 @@
 SELECT * FROM Property 
-WHERE PropertyID = $1;
+WHERE UserId = $1;

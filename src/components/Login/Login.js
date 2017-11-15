@@ -34,6 +34,7 @@ class Login extends Component {
         .then(response => {
           this.clear();
           this.setState({ successMessage: 'Successfully Logged In!' });
+          this.props.history.push('/Home');
         })
         .catch(err => {
           this.clear();

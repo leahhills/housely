@@ -1,3 +1,12 @@
+.property-container {
+    display: flex;
+    justify-content: space-around;
+    color: #252525;
+    padding: 7px;
+    background-color: #D0D0D0;
+    margin: 5px;
+}
+
 .add-property-container {
     display: flex;
     justify-content: center;

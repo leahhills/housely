@@ -16,10 +16,7 @@ module.exports = {
         const dbInstance = req.app.get('db')
 
         dbInstance.read_properties(5)
-        .then(properties => {
-            console.log(properties);
-            res.status(200).send(properties)
-        })
+        .then(properties => { res.status(200).send(properties) })
         .catch(err => res.status(500).send(err));
     },
     deleteProperty: (req, res, next) => {
@@ -33,11 +30,11 @@ module.exports = {
     },
     getPropertiesByRent: (req, res, next) => {
         const dbInstance = req.app.get('db')
-        const { desiredrent } = req.query
+        const { desiredRent } = req.query
 
-        console.log(req.query)
+        console.log(desiredRent)
 
-        dbInstance.read_properties_by_rent([desiredrent, 6])
+        dbInstance.read_properties_by_rent([desiredRent, 5])
         .then(properties => res.status(200).send(properties))
         .catch(err => res.status(500).send(err));   
     }
