@@ -1,0 +1,58 @@
+.add-property-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+}
+
+.btn {
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    
+}
+
+.btn-add-property {
+    background-color: #8aea92;
+    margin-bottom: 30px;
+}
+
+.btn-filter {
+    background-color: #8aea92;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-reset {
+    background-color: #3b5249;
+    color: #fafafa;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-text {
+    margin-right: 5px;
+}
+
+.filter-input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.filter-input {
+    width: 85px;
+    padding: 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 20px;
+    border: 1px solid #519872;
+    outline: none;
+}

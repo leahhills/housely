@@ -1,0 +1,84 @@
+.auth_container {
+    margin-left: 8%;
+    margin-right: 8%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.auth_input_user {
+    padding: 10px;
+    align-items: center;
+    width: 500px;
+    border: 1px solid;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.auth_input_pass {
+    padding: 10px;
+    align-items: center;
+    /* justify-content: left; */
+    width: 500px;
+    border: 1px solid;
+    display: flex;
+    margin-top: 10px;
+}
+
+.house_logo {
+    /* margin */
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.error_container {
+    margin-top: 15px;
+    background-color: #CC4040;
+    color: #fafafa;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.success_container {
+    margin-top: 15px;
+    background-color: #35BB43;
+    color: #fafafa;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.login_reg {
+    margin-bottom: 25px;
+}
+
+.button_container {}
+
+.login_button {
+    color: black;
+    border: none;
+    background-color: #8AEA92;
+    padding: 15px 60px 15px 60px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.register_button {
+    color: white;
+    border: none;
+    background-color: #3B5249;
+    padding: 15px 60px 15px 60px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
