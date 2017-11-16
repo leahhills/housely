@@ -1,9 +1,9 @@
 module.exports = function (req, res, next){
-    const dbInstance = req.app.get('db')
     const { session } = req;
+    console.log('checking4session',session.user);
     if(!session.user) {
         console.log('no user', session.user)
-        session.user = { username:'', password:'' };
+       session.user = { username:'', password:'' };
     }
   
     next();

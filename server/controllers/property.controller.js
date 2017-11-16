@@ -16,6 +16,7 @@ module.exports = {
     getProperties: (req, res, next) => {
         const dbInstance = req.app.get('db');
         const { session } = req;
+        console.log('checking session getproperty',session)
 
         const { userID } =req.session
         console.log('hellocheckingprops',session);
@@ -29,8 +30,8 @@ module.exports = {
         const { session } = req;
         const { params } = req;
 
-        console.log('checkingdeltepropwithparams',params)
-        console.log(req.params.id)
+        console.log('checkingdeltepropertywithparams',params)
+        console.log('checkingdeleteproperty',req.params.id)
         dbInstance.delete_property(req.params.id)
         .then(property => res.status(200).send(req.params.id))
         .catch(err => res.status(500).send(err));
@@ -42,7 +43,7 @@ module.exports = {
         const {  params } = req;
         const { desiredRent } = req.query
 
-        console.log(desiredRent)
+        console.log('desiredrent',desiredRent)
 
         dbInstance.read_properties_by_rent([desiredRent, 5])
         .then(properties => res.status(200).send(properties))

@@ -6,15 +6,15 @@ class PropertyService {
     }
 
     getProperties() {
-        return axios.get(`${this.baseURL}/api/properties`);
+        return axios.get(`/api/properties`);
     }
 
     deleteProperty(propertyId) {
-        return axios.delete(`${this.baseURL}/api/properties/${propertyId}`);
+        return axios.delete(`/api/properties/${propertyId}`);
     }
 
     getPropertiesByRent(desiredRent) {
-        return axios.get(`${this.baseURL}/api/properties/filter`, {
+        return axios.get(`/api/properties/filter`, {
             params: {
                 desiredRent: desiredRent
             }
@@ -22,7 +22,7 @@ class PropertyService {
     }
 
     addProperty(property) {
-        return axios.post(`${this.baseURL}/api/properties`, property);
+        return axios.post(`/api/properties`, property);
     }
 }
 

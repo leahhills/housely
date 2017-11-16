@@ -9,11 +9,17 @@ module.exports = {
             dbInstance.validate_login(username, password)
             .then(response => {
                 if(response.length > 0) {
-                    //req.session.user = response[0];
+                    console.log('checking loginresponse',response[0])
+                    session.user = response[0];
+                    
+                    console.log('comingfromlogin',session.user);
                     res.status(200).send('Successfully Logged In!');
+                
                 } else {
                     res.status(400).send('Unable to login: Invalid username or password')
+                    
                 }
+                console.log(session.user)
             })
             .catch(err => {
                 console.log(`Error validating login: `, err);
@@ -21,11 +27,13 @@ module.exports = {
             });
         } else {
             if(!username)
-                res.status(400).send('Invalid Login: missing username');
+                
+               return res.status(400).send('Invalid Login: missing username');
             if(!password)
                 res.status(400).send('Invalid Login: missing password');
-            res.status(400).send('Invalid Login: missing username AND password');
+          
         }
+       
     },
     register: (req,res) => {
         const { username, password } = req.body;
@@ -41,6 +49,7 @@ module.exports = {
                 } else {
                     dbInstance.create_user(username, password)
                     .then(response => {
+                        session.user=response[0];
                         res.status(200).send(`Successfully created user ${username}`);
                     })
                 }

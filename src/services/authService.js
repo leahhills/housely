@@ -6,14 +6,14 @@ export default class AuthService {
     }
 
     login(username, password) {
-        return axios.post(`${this.baseURL}/api/auth/login`, { username: username, password: password }); 
+        return axios.post(`/api/auth/login`, { username: username, password: password }); 
     }
 
     register(username, password) {
-        return axios.post(`${this.baseURL}/api/auth/register`, { username: username, password: password });
+        return axios.post(`/api/auth/register`, { username: username, password: password });
     }
 
     logout() {
-        return axios.post(`${this.baseURL}/api/auth/logout`);
+        return axios.post(`/api/auth/logout`);
     }
 }
