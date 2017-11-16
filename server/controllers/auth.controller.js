@@ -1,6 +1,7 @@
 module.exports = {
-    login: (req, res, next) => {
+    login: (req, res) => {
         const { username, password } = req.body;
+        const{ session } = req;
         console.log(`U: ${username} P: ${password}`);
 
         if(username && password) {
@@ -26,8 +27,9 @@ module.exports = {
             res.status(400).send('Invalid Login: missing username AND password');
         }
     },
-    register: (req,res,next) => {
+    register: (req,res) => {
         const { username, password } = req.body;
+        const{ session } = req;
 
         if(username && password) {
             const dbInstance = req.app.get('db');
@@ -56,7 +58,11 @@ module.exports = {
             res.status(400).send('Invalid Registration: missing username AND password');
         }
     },
-    logout: (req, res, next) => {
+    logout: (req, res) => {
+        const { session } = req;
+        session.destroy();
         console.log('logging out');
+        res.status(200).send();
+        
     }
 }

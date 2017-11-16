@@ -3,6 +3,7 @@ const users = require('../models/users');
 module.exports = {
     createProperty:(req, res, next) => {
         const dbInstance = req.app.get('db')
+        const { session } = req;
         const { propertyName, propertyDesc, loan, mortgage, desiredRent, address, city, state, zip, userID }= req.body;
 
         dbInstance.create_property([ propertyName, propertyDesc,
@@ -13,7 +14,11 @@ module.exports = {
     
     },
     getProperties: (req, res, next) => {
-        const dbInstance = req.app.get('db')
+        const dbInstance = req.app.get('db');
+        const { session } = req;
+
+        const { userID } =req.session
+        console.log('hellocheckingprops',session);
 
         dbInstance.read_properties(5)
         .then(properties => { res.status(200).send(properties) })
@@ -21,7 +26,10 @@ module.exports = {
     },
     deleteProperty: (req, res, next) => {
         const dbInstance = req.app.get('db')
-     
+        const { session } = req;
+        const { params } = req;
+
+        console.log('checkingdeltepropwithparams',params)
         console.log(req.params.id)
         dbInstance.delete_property(req.params.id)
         .then(property => res.status(200).send(req.params.id))
@@ -30,6 +38,8 @@ module.exports = {
     },
     getPropertiesByRent: (req, res, next) => {
         const dbInstance = req.app.get('db')
+        const { session } = req;
+        const {  params } = req;
         const { desiredRent } = req.query
 
         console.log(desiredRent)

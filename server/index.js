@@ -16,18 +16,14 @@ app.use(cors());
 
 massive(process.env.CONNECTION_STRING).then(dbInstance => app.set('db', dbInstance));
 
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         secure: false,
-//         httpOnly: false
-//     },
-//     expires: 2592000000
-// }));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
 
-// app.use(checkForSession);
+}));
+
+app.use(checkForSession);
 
 endpoints.buildEndPoints(app);
 
